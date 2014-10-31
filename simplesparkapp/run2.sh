@@ -1,0 +1,9 @@
+#!/bin/bash
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/SocialNet/facebook_combined.txtD.txt --numEPart=20 --output=/user/btech/arpitk/GraphData/output/SocialNet/FB1 >Out/FBOut.txt 2>Log/FBLog.txt
+
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/NGTC/com-amazon.ungraph.txtD.txt --numEPart=20 --output=/user/btech/arpitk/GraphData/output/NGTC/Amazon1 >Out/AmazonOut.txt 2>Log/AmazonLog.txt
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/NGTC/com-youtube.ungraph.txtD.txt --numEPart=20 --output=/user/btech/arpitk/GraphData/output/NGTC/Youtube1 >Out/youtubeOut.txt 2>Log/youtubeLog.txt
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/NGTC/com-lj.ungraph.txtD.txt --numEPart=20 --output=/user/btech/arpitk/GraphData/output/NGTC/lj1 >Out/ljOut.txt 2>Log/ljLog.txt
+# spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/CollNet/CA-GrQc.txtD.txt --numEPart=20 --output=/user/btech/arpitk/GraphData/output/CollNet/GrQc3 >Out/GrQcOut.txt 2>Log/GrQcLog.txt

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/CollNet/CA-GrQc.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/CollNet/GrQc4 >Out/GrQcOut_1.txt 2>Log/GrQcLog_1.txt
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/CollNet/CA-HepTh.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/CollNet/HepTh4 >Out/HepThOut_1.txt 2>Log/HepThLog_1.txt
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/RoadNet/roadNet-CA.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/RoadNet/roadNet-CA4 >Out/roadnetCAOut_1.txt 2>Log/roadnetCALog_1.txt
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/RoadNet/roadNet-PA.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/RoadNet/roadNet-PA4 >Out/roadnetPAOut_1.txt 2>Log/roadnetPALog_1.txt
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/RoadNet/roadNet-TX.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/RoadNet/roadNet-TX4 >Out/roadnetTXOut_1.txt 2>Log/roadnetTXLog_1.txt
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/SocialNet/facebook_combined.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/SocialNet/FB4 >Out/FBOut_1.txt 2>Log/FBLog_1.txt
+
+
+spark-submit --class com.cloudera.sparkwordcount.GraphReaderPageRank --master yarn-client --executor-memory 50G --num-executors 15 --executor-cores 8 sparkwordcount-0.0.1-SNAPSHOT.jar dominatingset /user/btech/arpitk/GraphData/NGTC/com-amazon.ungraph.txtD.txt --numEPart=1 --output=/user/btech/arpitk/GraphData/output/NGTC/Amazon4 >Out/AmazonOut_1.txt 2>Log/AmazonLog_1.txt
