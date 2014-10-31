@@ -78,14 +78,14 @@ object GraphReaderPageRank extends Logging {
 
         val unpartitionedGraph = GraphLoader.edgeListFile(sc, fname,
           minEdgePartitions = numEPart).cache()
-        val graph = unpartitionedGraph//partitionStrategy.foldLeft(unpartitionedGraph)(_.partitionBy(_))
-        // val graph = Graph(unpartitionedGraph.vertices, partitionBy(unpartitionedGraph.edges, PartitionStrategy.EdgePartition2D))
+        // val graph = unpartitionedGraph//partitionStrategy.foldLeft(unpartitionedGraph)(_.partitionBy(_))
+        val graph = Graph(unpartitionedGraph.vertices, partitionBy(unpartitionedGraph.edges, PartitionStrategy.EdgePartition1D))
 
         println("GRAPHX: Number of vertices " + graph.vertices.count)
         println("GRAPHX: Number of edges " + graph.edges.count)
-        println("Begin time = " + System.currentTimeMillis);
+        println("Begin time = " + System.currentTimeMillis)
         val pr = DominatingSet.runUntilConvergence(graph).vertices.cache()
-        println("End time = " + System.currentTimeMillis);
+        println("End time = " + System.currentTimeMillis)
         // println("GRAPHX: Total rank: " + pr.map(_._2).reduce(_ + _))
 
         if (!outFname.isEmpty) {
