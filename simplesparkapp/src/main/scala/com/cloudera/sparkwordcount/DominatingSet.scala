@@ -92,15 +92,25 @@ object DominatingSet extends Logging {
     		var oneHopInfo=ArrayBuffer[Int]()
     		var count=0
     		var i=0
-    		oneHopInfo += id.toInt
-    		oneHopInfo += noNeigh
+            var maxid = id.toInt
+            var maxNeigh = noNeigh
+
+    		// oneHopInfo += id.toInt
+    		// oneHopInfo += noNeigh
+
     		for( i <- 0 until msgSum.length/2) {
 				if(msgSum(2*i+1) != -1) {
+                    if((maxNeigh < msgSum(2*i+1))||((maxNeigh == msgSum(2*i+1)) && (maxid > msgSum(2*i)))) {
+                        maxNeigh = msgSum(2*i+1)
+                        maxid = msgSum(2*i)
+                    }
 				    count=count+1
-				    oneHopInfo += msgSum(2*i)
-				    oneHopInfo += msgSum(2*i+1)
+				    // oneHopInfo += msgSum(2*i)
+				    // oneHopInfo += msgSum(2*i+1)
 				}	
     		}
+            oneHopInfo += maxid
+            oneHopInfo += maxNeigh
     		if(count==0){
     			return (-1,oldColor,nextSuperstep,oneHopInfo)
     		}
@@ -116,7 +126,7 @@ object DominatingSet extends Logging {
     			var i=0
     			breakable {
     				for( i <- 0 until msgSum.length/2) {
-    					if(msgSum(2*i+1) > noNeigh||(msgSum(2*i+1) == noNeigh&&msgSum(2*i) < id.toInt)) {
+    					if(msgSum(2*i+1) > noNeigh||(msgSum(2*i+1) == noNeigh && msgSum(2*i) < id.toInt)) {
     						flag = -1
     						break
     					}
